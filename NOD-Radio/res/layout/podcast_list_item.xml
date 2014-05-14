@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ru.rusnod.radio.podcasts.ui.PodcastItemView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingLeft="6dp"
+    android:paddingRight="6dp"
+    android:paddingTop="3dp"
+    android:paddingBottom="3dp">
+
+    <TextView
+        android:id="@+id/number"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        style="@style/Header.Medium"/>
+
+    <TextView
+        android:id="@+id/pub_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@id/number"
+        style="@style/Header.Micro"/>
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="72dp"
+        android:layout_height="76dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/number"
+        android:layout_centerVertical="true"
+        android:background="@color/light_blue"
+        android:padding="3dp"/>
+
+    <TextView
+        android:id="@+id/show_notes"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_toRightOf="@id/icon"
+        android:layout_alignTop="@id/icon"
+        android:layout_alignBottom="@id/icon"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:gravity="fill_horizontal"
+        android:maxLines="5"
+        style="@style/PodcastDescription"/>
+
+    <View
+        style="@style/DividerHorizontal"
+        android:layout_below="@id/icon"
+        android:background="@color/blue"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"/>
+</ru.rusnod.radio.podcasts.ui.PodcastItemView>

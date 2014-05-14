@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        package="ru.rusnod.radio"
+        android:versionName="0.01"
+        android:versionCode="16">
+    <supports-screens
+            android:largeScreens="true"
+            android:normalScreens="true"
+            android:smallScreens="true"
+            android:anyDensity="true"/>
+    <uses-sdk
+        android:minSdkVersion="7"
+        android:targetSdkVersion="15"/>
+    <uses-permission
+        android:name="android.permission.INTERNET"/>
+    <uses-permission
+        android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission
+        android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+            android:icon="@drawable/icon"
+            android:label="@string/app_name"
+            android:name="ru.rusnod.radio.RadiotApplication">
+        <activity
+                android:name="ru.rusnod.radio.podcasts.ui.PodcastListActivity"
+                android:theme="@style/Theme.Radiot"/>
+        <activity
+                android:name="ru.rusnod.radio.podcasts.download.FakeDownloaderActivity"
+                android:theme="@style/Theme.RadiotHome"/>
+        <activity
+                android:name="ru.rusnod.radio.live.ui.LiveShowActivity"
+                android:launchMode="singleTop"
+                android:label="@string/live_show_title"
+                android:theme="@style/Theme.Radiot"/>
+        <activity
+                android:name="ru.rusnod.radio.home_screen.AboutAppActivity"
+                android:label="@string/about_app_title"
+                android:theme="@style/Theme.Radiot"/>
+        <activity
+                android:name="ru.rusnod.radio.home_screen.HomeScreenActivity"
+                android:theme="@style/Theme.RadiotHome"
+                android:launchMode="singleTask">
+            <intent-filter>
+                <action
+                        android:name="android.intent.action.MAIN"/>
+                <category
+                        android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <service android:name="ru.rusnod.radio.live.service.LiveShowService"/>
+        <service android:name="ru.rusnod.radio.podcasts.download.DownloadService"/>
+        <receiver android:name="ru.rusnod.radio.podcasts.download.DownloadNotificationReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_NOTIFICATION_CLICKED" />
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="ru.rusnod.radio.live.service.TimeoutReceiver">
+            <intent-filter>
+                <action android:name="org.dandelion.radiot.live.Timeout" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>
