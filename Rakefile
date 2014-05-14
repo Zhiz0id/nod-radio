@@ -8,7 +8,7 @@ require TOOL_DIR + 'home_screen_buttons'
 require TOOL_DIR + 'buttons'
 
 SVG_DIR = WORK_DIR + 'artwork'
-RESOURCE_DIR = WORK_DIR + 'Radio-T' + 'res'
+RESOURCE_DIR = WORK_DIR + 'NOD-Radio' + 'res'
 
 desc "Print all missing drawables"
 task :find_missing do
@@ -25,6 +25,13 @@ desc "Create button drawables"
 task :buttons do
   ['ic_play.svg', 'ic_stop.svg', 'ic_stop_notification.svg'].each do |fn|
     create_button_drawables(SVG_DIR + fn, RESOURCE_DIR)
+  end
+end
+
+desc "Create main drawables"
+task :main do
+  ['logo.svg', 'icon.svg'].each do |fn|
+    create_main_drawables(SVG_DIR + fn, RESOURCE_DIR)
   end
 end
 

@@ -1,7 +1,7 @@
 module Inkscape
   extend self
   
-  INKSCAPE_PATH = "/Applications/Inkscape.app/Contents/Resources/bin/inkscape"
+  INKSCAPE_PATH = "inkscape"
 
   def invoke(args)
     system "#{INKSCAPE_PATH} #{args}"
